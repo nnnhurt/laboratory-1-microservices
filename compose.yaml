@@ -1,0 +1,22 @@
+services:
+  mysuperapp-1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  mysuperapp-2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      
+  mysuperapp-3:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  balancer:
+    image: nginx:alpine3.21
+    ports:
+      - 6080:80
+    volumes:
+      - ./nginx:/etc/nginx/templates
